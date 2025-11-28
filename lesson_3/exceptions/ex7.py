@@ -1,0 +1,1 @@
+#  b and c will both raise ZeroDivisionError.
