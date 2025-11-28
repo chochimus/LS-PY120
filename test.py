@@ -4,22 +4,23 @@ need to go back through lesson one and add exercises to repository
 also create a new repo for small problems
 """
 
-class FarmAnimal:
-    def speak(self):
-        return f'{self.__class__.__name__} says '
+class SpeedyMixin:
+    def run_fast(self):
+        self.speed = 70
 
-class Sheep(FarmAnimal):
-    def speak(self):
-        return super().speak() + 'baa!'
+class Animal:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-class Lamb(Sheep):
-    def speak(self):
-        return 'baaaaaaa!'
+class Dog(Animal):
+    DOG_YEARS = 7
 
-class Cow(FarmAnimal):
-    def speak(self):
-        return super().speak() + 'mooooooo!'
+    def __init__(self, name, age):
+        self.dog_age = age * Dog.DOG_YEARS
 
-print(Sheep().speak())        # Sheep says baa!
-print(Lamb().speak())         # Lamb says baa!baaaaaaa!
-print(Cow().speak())          # Cow says mooooooo!
+class Greyhound(SpeedyMixin, Dog):
+    pass
+
+grey = Greyhound('Grey', 3)
+print(grey.age)
